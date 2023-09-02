@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const initialTasks = [
+    { text: "play football", color: "black", completed: true },
+    { text: "play game", color: "red", completed: false },
+    { text: "shut window", color: "purple", completed: false },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>To Dos</h1>
+      <input></input>
+      <button>Add Task</button>
+
+      {initialTasks.map((e, i) => {
+        return (
+          <div key={i} style={{ color: e.color }}>
+            {e.text}
+            <input type="checkbox" />
+          </div>
+        );
+      })}
     </div>
   );
 }
